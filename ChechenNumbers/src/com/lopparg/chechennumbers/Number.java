@@ -2,6 +2,7 @@ package com.lopparg.chechennumbers;
 
 
 
+
 import android.content.Context;
 import android.media.MediaPlayer;
 
@@ -18,8 +19,9 @@ public class Number {
 	
 	//Konstruktor um Number oObjekt zu erstellen
 	public Number(Context ctx, int sound_number) {
-		//this.ctx = ctx;
-		md = MediaPlayer.create(ctx, R.raw.sound1);
+		this.ctx = ctx;
+		this.sound_number = sound_number;
+		md = MediaPlayer.create(ctx, sound[sound_number]);
 		
 	}
 	
@@ -28,13 +30,13 @@ public class Number {
 		return sound_number;
 	}
 
-	/*
 	public void setSound(int sound_number) {
 		this.sound_number = sound_number;
 		md.reset();
 		md = MediaPlayer.create(ctx, sound[sound_number]);
 	}
-	*/
+	
+	
 	void playSound() {
 		md.start();
 	}
